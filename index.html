@@ -1,16 +1,49 @@
-<!-- index.html --><!DOCTYPE html><html lang="id">
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SKYXCODE - Beranda</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .search-container {
+      margin: 1rem auto;
+      max-width: 600px;
+      text-align: center;
+    }
+    .search-input {
+      padding: 0.5rem 1rem;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 25px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+    }
+  </style>
   <script>
     function toggleSidebar() {
       document.querySelector('.sidebar').classList.toggle('open');
     }
+
+    function searchContent() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('main .section');
+
+      sections.forEach(section => {
+        const text = section.innerText.toLowerCase();
+        if (text.includes(input)) {
+          section.style.display = '';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    }
   </script>
 </head>
-<body>  <aside class="sidebar">
+<body>
+  <aside class="sidebar">
     <div class="profile">
       <img src="https://qu.ax/tqXAA.jpg" alt="Avatar" />
       <h3>SKYXCODE</h3>
@@ -20,40 +53,51 @@
       <ul>
         <li class="active"><a href="index.html">🏠 Beranda</a></li>
         <li><a href="produk.html">📦 Produk</a></li>
-        <li><a href="download.html">🤖 Download Bot</a></li>
-        <li><a href="api.html">📡 API</a></li>
+        <li><a href="download.html">🤖 Dapatkan Script</a></li>
+        <li><a href="server.js">📡 API</a></li>
         <li><a href="owner.html">👤 Owner</a></li>
       </ul>
     </nav>
-  </aside>  <header class="header">
+  </aside>
+
+  <header class="header">
     <span class="menu-toggle" onclick="toggleSidebar()">☰</span>
     <h1>Welcome SkyxCode</h1>
-  </header>  <main class="main">
+  </header>
+
+  <main class="main">
+    <!-- Search Box -->
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-input" onkeyup="searchContent()" placeholder="">
+    </div>
+
+    <!-- Konten utama -->
     <section class="section">
       <h2>Bot WhatsApp</h2>
       <p>Bot WhatsApp SkyxCode dengan fitur AI, game, edukasi, store, dll.</p>
       <a class="btn" href="download.html">Download Sekarang</a>
-    </section><section class="section">
-  <h2>API Publik</h2>
-  <p>Akses API gratis untuk edukasi, nomor, AI, dan banyak lagi.</p>
-  <a class="btn" href="api.html">Kunjungi API</a>
-</section>
+    </section>
 
-<section class="section">
-  <h2>Produk Lainnya</h2>
-  <p>Lihat tools, project, dan layanan buatan SkyxCode lainnya.</p>
-  <a class="btn" href="produk.html">Lihat Portofolio</a>
-</section>
+    <section class="section">
+      <h2>API Publik</h2>
+      <p>Akses API gratis untuk edukasi, nomor, AI, dan banyak lagi.</p>
+      <a class="btn" href="api.html">Kunjungi API</a>
+    </section>
 
-<section class="section">
-  <h2>Support Owner</h2>
-  <p>• Jangan lupa Ikutin Ch Mimin ya</p>
-  <p>• Jangan Lupa Follow Ig Mimin ya</p>
-  <p>• Tetap Support Mimin Terus Agar Kreativitas Nya Menambah Hehe >.<</p>
-</section>
+    <section class="section">
+      <h2>Produk Lainnya</h2>
+      <p>Lihat tools, project, dan layanan buatan SkyxCode lainnya.</p>
+      <a class="btn" href="produk.html">Lihat Produk</a>
+    </section>
 
+    <section class="section">
+      <h2>Support Owner</h2>
+      <p>• Jangan lupa Ikutin Ch Mimin ya</p>
+      <p>• Jangan Lupa Follow Ig Mimin ya</p>
+      <p>• Tetap Support Mimin Terus Agar Kreativitas Nya Menambah Hehe >.<</p>
+    </section>
 
-<!-- Credits Section -->
+    <!-- Credits Section -->
     <footer style="text-align: center; margin-top: 2rem; color: #bbb; font-size: 0.85rem;">
       <p>© Dibuat Oleh SkyxCode</p>
       <p>18 - 06 - 2025</p>
