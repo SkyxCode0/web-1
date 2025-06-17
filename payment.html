@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembayaran - SKYXCODE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SKYXCODE</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="produk.html">Produk</a></li>
+        <li><a href="pembayaran.html">Pembayaran</a></li>
+      </ul>
+    </nav>
+  </header>  <section class="services">
+    <h2>Formulir Pembayaran</h2>
+    <form onsubmit="kirimWhatsApp(); return false;" style="max-width: 500px; margin: auto;">
+      <label for="nama">Nama Lengkap:</label><br>
+      <input type="text" id="nama" name="nama" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><label for="produk">Pilih Produk:</label><br>
+  <select id="produk" name="produk" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+    <option value="Bot WhatsApp Premium">Bot WhatsApp Premium</option>
+    <option value="Hosting VPS Pterodactyl">Hosting VPS Pterodactyl</option>
+    <option value="API Publik + Key">API Publik + Key</option>
+  </select>
+
+  <label for="nomor">Nomor WhatsApp:</label><br>
+  <input type="tel" id="nomor" name="nomor" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+
+  <label for="metode">Metode Pembayaran:</label><br>
+  <select id="metode" name="metode" required style="width: 100%; padding: 0.5rem; margin-bottom: 1.5rem;">
+    <option value="QRIS">QRIS</option>
+    <option value="Dana">Dana</option>
+    <option value="OVO">OVO</option>
+    <option value="GoPay">GoPay</option>
+    <option value="Bank Transfer">Bank Transfer</option>
+  </select>
+
+  <button type="submit" class="btn">Kirim & Bayar</button>
+</form>
+
+  </section>  <footer>
+    <p>&copy; 2025 SKYXCODE. All rights reserved.</p>
+  </footer>  <script>
+    function kirimWhatsApp() {
+      const nama = document.getElementById("nama").value;
+      const produk = document.getElementById("produk").value;
+      const nomor = document.getElementById("nomor").value;
+      const metode = document.getElementById("metode").value;
+
+      const pesan = `Halo, saya ingin pesan:\nNama: ${nama}\nProduk: ${produk}\nNomor WA: ${nomor}\nPembayaran: ${metode}`;
+      const url = "https://wa.me/6282171351029?text=" + encodeURIComponent(pesan);
+      window.open(url, "_blank");
+      alert("Pesanan Anda sedang diproses via WhatsApp.");
+    }
+  </script></body>
+</html>
